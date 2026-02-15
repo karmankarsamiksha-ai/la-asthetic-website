@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="header-inner container">
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <span class="logo-text">La Asthestique</span>
+      <span class="logo-tagline">Skin</span>
+    </a>
+    <button type="button" class="menu-toggle" aria-label="Toggle menu" (click)="toggleMenu()">
+      <span class="hamburger" [class.open]="menuOpen"></span>
+      <span class="hamburger" [class.open]="menuOpen"></span>
+      <span class="hamburger" [class.open]="menuOpen"></span>
+    </button>
+    <nav class="nav" [class.open]="menuOpen">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+      <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a>
+      <a routerLink="/book-appointment" routerLinkActive="active" (click)="closeMenu()">Book Appointment</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+      <a routerLink="/book-appointment" class="nav-cta" (click)="closeMenu()">Book Now</a>
+    </nav>
+  </div>
+</header>

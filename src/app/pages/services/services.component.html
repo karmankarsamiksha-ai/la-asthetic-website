@@ -1,0 +1,25 @@
+<section class="page-hero">
+  <div class="container">
+    <h1>Our Services</h1>
+    <p class="page-hero-sub">Comprehensive aesthetic and medical dermatology tailored to you.</p>
+  </div>
+</section>
+
+<section class="services-list section">
+  <div class="container">
+    <div class="services-list-grid">
+      @for (service of services; track service.title) {
+        <div class="service-item">
+          <span class="service-item-icon">{{ service.icon }}</span>
+          <div class="service-item-content">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="section-cta">
+      <a routerLink="/book-appointment" class="btn btn-gold">Book a Consultation</a>
+    </div>
+  </div>
+</section>

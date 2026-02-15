@@ -1,0 +1,142 @@
+<section class="page-hero">
+  <div class="container">
+    <h1>Book an Appointment</h1>
+    <p class="page-hero-sub">Request your visit and we’ll confirm availability shortly.</p>
+  </div>
+</section>
+
+<section class="booking-section section">
+  <div class="container booking-layout">
+    <div class="booking-form-wrapper">
+      <h2>Request Your Visit</h2>
+      <p class="booking-intro">Fill out the form below and our team will reach out to confirm your appointment. For same-day or urgent requests, please call us directly.</p>
+
+      @if (submitted) {
+        <div class="booking-success">
+          <p><strong>Thank you.</strong> We’ve received your request and will contact you soon to confirm your appointment.</p>
+          <a routerLink="/" class="btn btn-primary">Back to Home</a>
+        </div>
+      } @else {
+        <form class="booking-form" (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First name <span class="required">*</span></label>
+              <input
+                id="firstName"
+                type="text"
+                name="firstName"
+                [(ngModel)]="model.firstName"
+                required
+                placeholder="Jane"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last name <span class="required">*</span></label>
+              <input
+                id="lastName"
+                type="text"
+                name="lastName"
+                [(ngModel)]="model.lastName"
+                required
+                placeholder="Doe"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              [(ngModel)]="model.email"
+              required
+              placeholder="jane@example.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone <span class="required">*</span></label>
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              [(ngModel)]="model.phone"
+              required
+              placeholder="(555) 123-4567"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service of interest <span class="required">*</span></label>
+            <select
+              id="service"
+              name="service"
+              [(ngModel)]="model.service"
+              required
+            >
+              @for (opt of serviceOptions; track opt.value) {
+                <option [value]="opt.value">{{ opt.label }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="preferredDate">Preferred date</label>
+              <input
+                id="preferredDate"
+                type="date"
+                name="preferredDate"
+                [(ngModel)]="model.preferredDate"
+              />
+            </div>
+            <div class="form-group">
+              <label for="preferredTime">Preferred time</label>
+              <select
+                id="preferredTime"
+                name="preferredTime"
+                [(ngModel)]="model.preferredTime"
+              >
+                <option value="">Any time</option>
+                @for (slot of timeSlots; track slot) {
+                  <option [value]="slot">{{ slot }}</option>
+                }
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message (optional)</label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="model.message"
+              rows="4"
+              placeholder="Any specific concerns or questions?"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-block" [disabled]="!bookingForm.valid">
+            Submit Request
+          </button>
+        </form>
+      }
+    </div>
+
+    <aside class="booking-sidebar">
+      <div class="sidebar-card">
+        <h3>Contact us directly</h3>
+        <p>Prefer to book by phone?</p>
+        <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+        <p><a href="mailto:appointments&#64;laasthetic.com">appointments&#64;laasthetic.com</a></p>
+      </div>
+      <div class="sidebar-card">
+        <h3>Office hours</h3>
+        <p>Mon – Fri: 9:00 AM – 5:00 PM</p>
+        <p>Sat: 9:00 AM – 1:00 PM</p>
+        <p>Sun: Closed</p>
+      </div>
+    </aside>
+  </div>
+</section>
