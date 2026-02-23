@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.css','./home-hero.css','./home-carousel.css'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   carouselIndex = 0;
