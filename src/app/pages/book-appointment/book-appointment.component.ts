@@ -58,9 +58,9 @@ export class BookAppointmentComponent {
   onSubmit(): void {
     if (this.submitting) return;
 
-    if (FORMSPREE_FORM_ID === 'YOUR_FORMSPREE_FORM_ID') {
+    if (FORMSPREE_FORM_ID === null) {
       this.submitError =
-        'Form is not configured yet. Until you add your Formspree form ID, please book by calling 91 84593 23304 or emailing laaesthetiqueshlclinic10@gmail.com.';
+        'Form is not configured yet. Until you add your Formspree form ID, please book by calling 91 84593 23304 or emailing laaesthetique4@gmail.com.';
       this.isFormspreeNotConfigured = true;
       return;
     }
@@ -95,7 +95,7 @@ export class BookAppointmentComponent {
         this.submitError =
           err?.error?.error ||
           err?.message ||
-          'Something went wrong. Please call us or email laaesthetiqueshlclinic10@gmail.com to book.';
+          'Something went wrong. Please call us or email laaesthetique4@gmail.com to book.';
       },
     });
   }

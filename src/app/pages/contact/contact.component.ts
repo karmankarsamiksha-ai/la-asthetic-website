@@ -39,7 +39,7 @@ export class ContactComponent {
   onSubmit(): void {
     if (this.submitting) return;
 
-    if (FORMSPREE_FORM_ID === 'YOUR_FORMSPREE_FORM_ID') {
+    if (FORMSPREE_FORM_ID === null) {
       this.submitError =
         'Form is not configured yet. Until you add your Formspree form ID in src/app/app.config.formspree.ts, please email us at laaesthetiqueshlclinic10@gmail.com or call 91 84593 23304.';
       this.isFormspreeNotConfigured = true;
