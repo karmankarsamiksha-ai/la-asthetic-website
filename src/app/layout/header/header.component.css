@@ -104,20 +104,8 @@
   width: 24px;
   height: 2px;
   background: var(--color-charcoal);
-  transition: transform 10s ease, opacity 10s  ease;
 }
 
-.hamburger:nth-child(1).open {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger:nth-child(2).open {
-  opacity: 0.6;
-}
-
-.hamburger:nth-child(3).open {
-  transform: translateY(-8px) rotate(-45deg);
-}
 
 .nav {
   display: none;

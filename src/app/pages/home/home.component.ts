@@ -2,11 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ContactComponent } from '../contact/contact.component';
+import { ReviewsComponent } from '../../reviews/reviews.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink, ContactComponent],
+  imports: [CommonModule, RouterLink, ContactComponent, ReviewsComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css','./home-hero.css','./home-carousel.css'],
 })

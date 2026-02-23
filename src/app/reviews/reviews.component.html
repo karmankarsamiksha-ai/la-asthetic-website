@@ -1,0 +1,23 @@
+<section class="reviews section">
+    <div class="container">
+      <h2 style="justify-self: center;">What Our Patients Say</h2>
+      <div class="reviews-carousel">
+        <div *ngFor="let review of reviews; let i = index"
+             class="review-slide"
+             [class.active]="carouselIndex === i">
+          <p>"{{review.text}}"</p>
+          <small>- {{review.author_name}}</small>
+        </div>
+      </div>
+      <div class="review-controls">
+        <button (click)="prevSlide()">‹</button>
+        <button (click)="nextSlide()">›</button>
+      </div>
+      <div class="review-dots">
+        <button *ngFor="let review of reviews; let i = index"
+                (click)="carouselGoTo(i)"
+                [class.active]="carouselIndex === i">
+        </button>
+      </div>
+    </div>
+  </section>  

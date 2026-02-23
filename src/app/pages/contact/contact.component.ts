@@ -41,7 +41,7 @@ export class ContactComponent {
 
     if (FORMSPREE_FORM_ID === null) {
       this.submitError =
-        'Form is not configured yet. Until you add your Formspree form ID in src/app/app.config.formspree.ts, please email us at laaesthetiqueshlclinic10@gmail.com or call 91 84593 23304.';
+        'Form is not configured yet. Until you add your Formspree form ID in src/app/app.config.formspree.ts, please email us at laaesthetique4@gmail.com or call 91 84593 23304.';
       this.isFormspreeNotConfigured = true;
       return;
     }
@@ -73,7 +73,7 @@ export class ContactComponent {
         this.submitError =
           err?.error?.error ||
           err?.message ||
-          'Could not send. Please email us at laaesthetiqueshlclinic10@gmail.com';
+          'Could not send. Please email us at laaesthetique4@gmail.com';
       },
     });
   }

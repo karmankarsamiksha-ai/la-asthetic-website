@@ -54,7 +54,8 @@
             "production": { "buildTarget": "aesthetic-dermatology:build:production" },
             "development": { "buildTarget": "aesthetic-dermatology:build:development" }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": { "proxyConfig": "proxy.conf.json" }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -66,7 +67,8 @@
               { "glob": "**/*", "input": "public", "output": "/" }
             ],
             "styles": ["src/styles.css"],
-            "scripts": []
+            "scripts": [],
+            
           }
         }
       }
