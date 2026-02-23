@@ -1,0 +1,1 @@
+<updated content for about.component.ts>
