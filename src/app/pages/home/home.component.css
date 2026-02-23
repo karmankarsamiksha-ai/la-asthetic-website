@@ -8,11 +8,8 @@
   }
 }
 
-@media (max-width: 480px) {
-  .section {
-    padding: var(--space-xl) 0;
-  }
-}
+.section { padding:var(--space-2xl) 0 }
+@media(max-width:480px){ .section{padding:var(--space-xl) 0} }
 
 .section--alt {
   background: var(--color-ivory);
