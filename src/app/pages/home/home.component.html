@@ -1,30 +1,46 @@
 <section class="hero">
+  <div class="hero-bg">
+    <div
+      *ngFor="let img of carouselImages; let i = index; trackBy: trackByUrl"
+      class="hero-slide"
+      [class.hero-slide--active]="carouselIndex === i"
+      [style.backgroundImage]="'url(' + img.url + ')'"
+      [attr.aria-hidden]="carouselIndex !== i"
+    ></div>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-content container">
     <h1>Radiant Skin,<br>Refined Care</h1>
-    <p class="hero-subtitle">Expert aesthetic dermatology in a serene, personalized setting. Restore balance and reveal your best skin.</p>
+    <p class="hero-subtitle">Expert dermatology in Nagpur—acne, hair regrowth, skin diseases, laser therapy, and more. Personalised care in a calm, clinical setting.</p>
     <div class="hero-actions">
       <a routerLink="/book-appointment" class="btn btn-gold">Book Appointment</a>
       <a routerLink="/services" class="btn btn-secondary">Our Services</a>
     </div>
+    <div class="hero-dots" role="tablist" [attr.aria-label]="'Carousel, slide ' + (carouselIndex + 1) + ' of ' + carouselImages.length">
+      <button
+        *ngFor="let img of carouselImages; let i = index; trackBy: trackByUrl"
+        type="button"
+        class="hero-dot"
+        [class.active]="carouselIndex === i"
+        [attr.aria-label]="'Go to slide ' + (i + 1)"
+        [attr.aria-selected]="carouselIndex === i"
+        (click)="carouselGoTo(i)"
+      ></button>
+    </div>
   </div>
 </section>
 
-<section class="intro section">
-  <div class="container intro-grid">
-    <div class="intro-text">
-      <h2>Where Science Meets Serenity</h2>
-      <p>At La Asthestique, we combine evidence-based treatments with a calming environment. Our board-certified dermatologists and licensed aestheticians tailor every visit to your skin goals—whether that's rejuvenation, correction, or simply maintaining a healthy glow.</p>
-      <a routerLink="/about" class="btn btn-primary">Learn About Us</a>
-    </div>
-    <div class="intro-visual">
-      <div class="intro-card">
-        <span class="intro-stat">15+</span>
-        <span class="intro-label">Years Experience</span>
+<section class="doctor-preview section">
+  <div class="container">
+    <div class="doctor-preview-card">
+      <div class="doctor-preview-photo-wrap">
+        <img src="/dr-pradnya-asutkar.jpg" alt="Dr. Pradnya Asutkar - Dermatologist in Nagpur" class="doctor-preview-photo" width="320" height="320" />
       </div>
-      <div class="intro-card">
-        <span class="intro-stat">50+</span>
-        <span class="intro-label">Treatments</span>
+      <div class="doctor-preview-info">
+        <h2 class="doctor-preview-name">Dr. Pradnya Asutkar</h2>
+        <p class="doctor-preview-qual">MD (Skin &amp; VD) · FLCAM</p>
+        <p class="doctor-preview-desc">Fellowship in Lasers Cosmetology and Aesthetic Medicine. Your skin and hair care expert in Nagpur.</p>
+        <a routerLink="/about" class="btn btn-primary">About Dr. Pradnya</a>
       </div>
     </div>
   </div>
@@ -34,23 +50,23 @@
   <div class="container">
     <div class="section-title">
       <h2>Our Services</h2>
-      <p class="subtitle">From injectables to lasers, facials to body contouring.</p>
+      <p class="subtitle">Acne &amp; scars, hair regrowth, skin diseases, laser therapy, and more—all under one roof in Nagpur.</p>
     </div>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">◆</div>
-        <h3>Injectables & Fillers</h3>
-        <p>Natural-looking volume and wrinkle softening with Botox®, fillers, and advanced techniques.</p>
+        <h3>Acne &amp; Acne Scar Treatment</h3>
+        <p>Chemical peels, dermaroller, microneedling and laser for clearer skin and smoother texture.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">◆</div>
-        <h3>Laser & Energy</h3>
-        <p>Resurfacing, pigmentation correction, and skin tightening with state-of-the-art devices.</p>
+        <h3>Hair Regrowth Therapy</h3>
+        <p>GFC, Laser Cap, Duta injections, Hair 360 and custom plans for thinning and hair loss.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">◆</div>
-        <h3>Facials & Peels</h3>
-        <p>Customized facials and medical-grade peels for clarity, texture, and radiance.</p>
+        <h3>Skin Diseases &amp; Laser</h3>
+        <p>Psoriasis, vitiligo, fungal infections, nail laser, tattoo removal and full skin care.</p>
       </div>
     </div>
     <div class="section-cta">
@@ -62,7 +78,7 @@
 <section class="cta-section section">
   <div class="container cta-inner">
     <h2>Ready to Glow?</h2>
-    <p>Schedule a consultation and take the first step toward your best skin.</p>
+    <p>Book your consultation at our skin clinic in Nagpur and take the first step toward healthier skin and hair.</p>
     <a routerLink="/book-appointment" class="btn btn-gold">Book Your Visit</a>
   </div>
 </section>

@@ -11,43 +11,43 @@ import { RouterLink } from '@angular/router';
 export class ServicesComponent {
   services = [
     {
-      title: 'Injectables & Neuromodulators',
-      description: 'Botox®, Dysport®, and Xeomin® for fine lines and dynamic wrinkles. Natural-looking results tailored to your face.',
+      title: 'Acne & Acne Scar Treatment',
+      description: 'Medical-grade solutions for active acne and post-acne scarring using chemical peels, dermaroller, microneedling, and laser therapies. We tailor the protocol to your skin type and severity for clearer, smoother skin with minimal downtime.',
       icon: '◆',
     },
     {
-      title: 'Dermal Fillers',
-      description: 'Hyaluronic acid fillers for volume restoration, lip enhancement, and contouring. Reversible and customizable.',
+      title: 'Hair Regrowth Therapy',
+      description: 'Evidence-based treatments for hair loss and thinning: GFC (Growth Factor Concentrate), Laser Cap (LLLT), Duta injections, Hair 360, and personalised regimens. We address androgenetic alopecia, telogen effluvium, and other causes for visible regrowth and density.',
       icon: '◆',
     },
     {
-      title: 'Laser Resurfacing',
-      description: 'Fractional and ablative lasers for texture, scars, and sun damage. We offer multiple modalities for different skin types.',
+      title: 'Nail Infections & Laser Therapy',
+      description: 'Laser treatment for stubborn fungal nail infections (onychomycosis) and management of nail deformity. Safe, effective, and suitable for nails that have not responded to topical or oral therapy.',
       icon: '◆',
     },
     {
-      title: 'IPL & Pigment Correction',
-      description: 'Intense pulsed light and targeted lasers for sun spots, melasma, and vascular concerns.',
+      title: 'Oral Lesion Treatment',
+      description: 'Diagnosis and treatment of oral mucosal conditions, including benign lesions, ulcers, and suspicious changes. We provide careful evaluation and appropriate medical or procedural care for oral health and peace of mind.',
       icon: '◆',
     },
     {
-      title: 'Chemical Peels',
-      description: 'Medical-grade peels from light to deep, for clarity, acne, and rejuvenation.',
+      title: 'Sexually Transmitted Diseases',
+      description: 'Confidential, non-judgmental screening, diagnosis, and treatment of sexually transmitted infections. We offer evidence-based care with emphasis on privacy and follow-up.',
       icon: '◆',
     },
     {
-      title: 'Facials & Hydration',
-      description: 'Customized facials, microneedling, and infusion treatments for glow and hydration.',
+      title: 'Tattoo Removal',
+      description: 'Laser tattoo removal using advanced Q-switched and picosecond lasers for safe, progressive fading of unwanted ink. Treatment plans are customised to tattoo size, colours, and skin type for optimal results.',
       icon: '◆',
     },
     {
-      title: 'Body Contouring',
-      description: 'Non-invasive body sculpting and skin tightening for stubborn areas.',
+      title: 'Ear & Nose Piercing',
+      description: 'Sterile, professional ear and nose piercing performed in a clinical setting. We use high-quality jewellery and strict hygiene protocols for a safe, comfortable experience.',
       icon: '◆',
     },
     {
-      title: 'Skin Cancer Screening',
-      description: 'Full-body skin exams and mole checks for early detection and peace of mind.',
+      title: 'Treatment of All Skin Diseases',
+      description: 'Comprehensive care for chronic and acute skin conditions: psoriasis, vitiligo, lichen planus, and fungal, bacterial, and viral skin infections. We combine accurate diagnosis with tailored medical and procedural treatment for long-term control and improved quality of life.',
       icon: '◆',
     },
   ];

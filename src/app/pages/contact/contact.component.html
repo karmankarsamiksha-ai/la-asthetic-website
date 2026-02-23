@@ -1,7 +1,15 @@
 <section class="page-hero">
   <div class="container">
-    <h1>Contact Us</h1>
-    <p class="page-hero-sub">We’d love to hear from you.</p>
+    <h1>
+      <button
+        type="button"
+        class="btn btn-gold call-hero-btn"
+        (click)="callForAppointment()"
+      >
+        Call us for appointment
+      </button>
+    </h1>
+    <p class="page-hero-sub">Get in touch with our dermatology clinic in Nagpur.</p>
   </div>
 </section>
 
@@ -14,6 +22,17 @@
           <p>Thank you. We’ll get back to you as soon as possible.</p>
         </div>
       } @else {
+        @if (submitError) {
+          <div class="contact-error">
+            <p>{{ submitError }}</p>
+            @if (isFormspreeNotConfigured) {
+              <p class="contact-error-help">
+                <a href="https://formspree.io/register" target="_blank" rel="noopener noreferrer">Create a free Formspree form</a>,
+                copy your form ID, then set it in <code>src/app/app.config.formspree.ts</code> (replace <code>YOUR_FORMSPREE_FORM_ID</code>). Same ID is used for both Contact and Book Appointment forms.
+              </p>
+            }
+          </div>
+        }
         <form class="contact-form" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="name">Name <span class="required">*</span></label>
@@ -31,17 +50,18 @@
             <label for="message">Message <span class="required">*</span></label>
             <textarea id="message" [(ngModel)]="model.message" name="message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn btn-gold">Send Message</button>
+          <button type="submit" class="btn btn-gold" [disabled]="submitting">{{ submitting ? 'Sending…' : 'Send Message' }}</button>
         </form>
       }
     </div>
     <div class="contact-info">
       <h3>Visit Us</h3>
-      <p>123 Wellness Avenue<br>City, State 12345</p>
+      <p>Nagpur, Maharashtra</p>
+      <p><a href="https://share.google/CYnjYRnet0BuCUXYD" target="_blank" rel="noopener noreferrer" class="btn btn-secondary contact-directions">Get directions to clinic</a></p>
       <h3>Call</h3>
-      <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+      <p><a href="tel:+918459323304">+91 84593 23304</a></p>
       <h3>Email</h3>
-      <p><a href="mailto:hello&#64;laasthetic.com">hello&#64;laasthetic.com</a></p>
+      <p><a href="mailto:laaesthetiqueshlclinic10&#64;gmail.com">laaesthetiqueshlclinic10&#64;gmail.com</a></p>
       <a routerLink="/book-appointment" class="btn btn-primary">Book Appointment</a>
     </div>
   </div>

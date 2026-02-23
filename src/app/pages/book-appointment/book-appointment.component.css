@@ -17,8 +17,60 @@
 
 .page-hero-sub {
   color: var(--color-stone);
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
   margin: 0;
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    padding: var(--space-xl) var(--space-sm);
+  }
+  .booking-form-wrapper h2 {
+    font-size: 1.25rem;
+  }
+  .booking-intro {
+    font-size: 0.95rem;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: var(--space-sm);
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .sidebar-card {
+    padding: var(--space-lg);
+  }
+}
+
+@media (max-width: 360px) {
+  .page-hero {
+    padding: var(--space-lg) var(--space-xs);
+  }
+  .page-hero h1 {
+    font-size: 1.35rem;
+  }
+  .page-hero-sub {
+    font-size: 0.85rem;
+  }
+  .booking-layout {
+    gap: var(--space-xl);
+  }
+  .booking-form {
+    gap: var(--space-md);
+  }
+  .form-row {
+    gap: var(--space-md);
+  }
+  .form-group label {
+    font-size: 0.9rem;
+  }
+  .sidebar-card {
+    padding: var(--space-md);
+  }
+  .sidebar-card p {
+    font-size: 0.9rem;
+  }
 }
 
 .booking-layout {
@@ -43,11 +95,48 @@
   margin-bottom: var(--space-xl);
 }
 
+.booking-error {
+  background: #fef2f2;
+  color: #991b1b;
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  border-left: 4px solid #dc2626;
+  margin-bottom: var(--space-lg);
+}
+
+.booking-error p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.booking-error-help {
+  margin-top: var(--space-md) !important;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.booking-error-help a {
+  color: #b91c1c;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.booking-error-help a:hover {
+  color: #7f1d1d;
+}
+
+.booking-error-help code {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
 .booking-success {
   background: var(--color-ivory);
   padding: var(--space-xl);
   border-radius: var(--radius-lg);
-  border-left: 4px solid var(--color-gold);
+  border-left: 4px solid var(--color-blue);
 }
 
 .booking-success p {
@@ -85,7 +174,7 @@
 }
 
 .required {
-  color: var(--color-gold);
+  color: var(--color-blue-accent);
 }
 
 .form-group input,
@@ -109,8 +198,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
+  border-color: var(--color-blue-accent);
+  box-shadow: 0 0 0 3px rgba(var(--color-blue-accent-rgb, 201, 123, 132), 0.2);
 }
 
 .form-group input::placeholder,
@@ -124,7 +213,7 @@
 }
 
 .btn:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
   transform: none;
 }
@@ -139,7 +228,7 @@
   background: var(--color-ivory);
   padding: var(--space-xl);
   border-radius: var(--radius-lg);
-  border-left: 4px solid var(--color-gold);
+  border-left: 4px solid var(--color-blue-accent);
 }
 
 .sidebar-card h3 {
@@ -155,7 +244,7 @@
 }
 
 .sidebar-card a {
-  color: var(--color-gold);
+  color: var(--color-blue-accent);
 }
 
 .sidebar-card a:hover {

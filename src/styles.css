@@ -1,16 +1,18 @@
-/* ===== Aesthetic Dermatology – Global Styles ===== */
+/* ===== La Aesthetique – Pink & White Theme ===== */
 :root {
-  /* Palette – soft, clinical, luxurious */
-  --color-cream: #faf8f5;
-  --color-ivory: #f5f1eb;
-  --color-sand: #e8e2d9;
-  --color-stone: #c4bcb0;
-  --color-charcoal: #2d2a26;
-  --color-ink: #1a1816;
-  --color-gold: #b8860b;
-  --color-gold-light: #d4a84b;
-  --color-rose: #c9a9a6;
-  --color-mint: #a8c5b5;
+  /* Pink aesthetic palette (logo-aligned) */
+  --color-cream: #ffffff;
+  --color-ivory: #faf6f6;
+  --color-sand: #f0ebeb;
+  --color-stone: #9e8b8b;
+  --color-charcoal: #3d2d32;
+  --color-ink: #2d2325;
+  --color-blue: #c97b84;
+  --color-blue-hover: #b86b75;
+  --color-blue-light: #e0b4b8;
+  --color-blue-accent: #c97b84;
+  --color-blue-accent-rgb: 201, 123, 132;
+  --color-blue-accent-light: #e8c4c7;
   --color-white: #ffffff;
 
   /* Typography */
@@ -32,8 +34,8 @@
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
-  --shadow-soft: 0 4px 20px rgba(45, 42, 38, 0.06);
-  --shadow-medium: 0 8px 32px rgba(45, 42, 38, 0.08);
+  --shadow-soft: 0 4px 20px rgba(61, 45, 50, 0.06);
+  --shadow-medium: 0 8px 32px rgba(61, 45, 50, 0.08);
 }
 
 *,
@@ -50,13 +52,19 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: clamp(15px, 2.5vw, 16px);
+  font-size: clamp(14px, 2.5vw, 16px);
   line-height: 1.6;
   color: var(--color-ink);
   background-color: var(--color-cream);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+@media (max-width: 360px) {
+  body {
+    font-size: 14px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -66,12 +74,18 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3rem); }
-h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
-h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+h1 { font-size: clamp(1.65rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
+
+@media (max-width: 360px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.05rem; }
+}
 
 a {
-  color: var(--color-gold);
+  color: var(--color-blue-accent);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -105,6 +119,13 @@ input, select, textarea {
   padding-right: var(--space-md);
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+  }
+}
+
 @media (min-width: 640px) {
   .container {
     padding-left: var(--space-lg);
@@ -115,6 +136,15 @@ input, select, textarea {
 .section-title {
   text-align: center;
   margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    margin-bottom: var(--space-lg);
+  }
+  .section-title h2 {
+    padding: 0 var(--space-xs);
+  }
 }
 
 @media (min-width: 768px) {
@@ -129,9 +159,10 @@ input, select, textarea {
 }
 
 .section-title .subtitle {
-  font-size: 0.95rem;
+  font-size: clamp(0.875rem, 1.5vw, 0.95rem);
   color: var(--color-stone);
   font-weight: 400;
+  padding: 0 var(--space-xs);
 }
 
 .btn {
@@ -146,6 +177,14 @@ input, select, textarea {
   transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
+@media (max-width: 480px) {
+  .btn {
+    padding: var(--space-sm) var(--space-lg);
+    min-height: 44px;
+    font-size: 0.95rem;
+  }
+}
+
 @media (hover: none) {
   .btn:hover {
     transform: none;
@@ -153,38 +192,53 @@ input, select, textarea {
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-blue-accent);
   outline-offset: 2px;
 }
 
 .btn-primary {
-  background-color: var(--color-charcoal);
+  background-color: var(--color-blue);
   color: var(--color-white);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-ink);
+  background-color: var(--color-blue-hover);
+  color: var(--color-white);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--color-charcoal);
-  border: 2px solid var(--color-charcoal);
+  color: var(--color-blue);
+  border: 2px solid var(--color-blue);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-charcoal);
+  background-color: var(--color-blue);
   color: var(--color-white);
   transform: translateY(-1px);
 }
 
 .btn-gold {
-  background-color: var(--color-gold);
+  background-color: var(--color-blue);
   color: var(--color-white);
 }
 
 .btn-gold:hover {
-  background-color: var(--color-gold-light);
+  background-color: var(--color-blue-hover);
+  color: var(--color-white);
   transform: translateY(-1px);
+}
+
+/* Keep button appearance on hover when .btn is on an <a> (global a:hover would override color) */
+a.btn-primary:hover,
+a.btn-primary:focus-visible,
+a.btn-gold:hover,
+a.btn-gold:focus-visible {
+  color: var(--color-white);
+}
+
+a.btn-secondary:hover,
+a.btn-secondary:focus-visible {
+  color: var(--color-white);
 }

@@ -17,8 +17,39 @@
 
 .page-hero-sub {
   color: var(--color-stone);
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
   margin: 0;
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    padding: var(--space-xl) var(--space-sm);
+  }
+}
+
+@media (max-width: 360px) {
+  .page-hero {
+    padding: var(--space-lg) var(--space-xs);
+  }
+  .page-hero h1 {
+    font-size: 1.35rem;
+  }
+  .page-hero-sub {
+    font-size: 0.85rem;
+  }
+  .services-list-grid {
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+  .service-item {
+    padding: var(--space-sm);
+  }
+  .service-item-content h3 {
+    font-size: 1rem;
+  }
+  .service-item-content p {
+    font-size: 0.85rem;
+  }
 }
 
 .services-list-grid {
@@ -50,6 +81,13 @@
   transition: box-shadow 0.2s ease;
 }
 
+@media (max-width: 480px) {
+  .service-item {
+    flex-direction: column;
+    padding: var(--space-md);
+  }
+}
+
 @media (min-width: 640px) {
   .service-item {
     gap: var(--space-lg);
@@ -64,7 +102,7 @@
 .service-item-icon {
   flex-shrink: 0;
   font-size: 1.25rem;
-  color: var(--color-gold);
+  color: var(--color-blue-accent);
   margin-top: 2px;
 }
 
@@ -76,7 +114,7 @@
 
 .service-item-content p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: clamp(0.875rem, 1.2vw, 0.95rem);
   color: var(--color-ink);
   line-height: 1.6;
 }
