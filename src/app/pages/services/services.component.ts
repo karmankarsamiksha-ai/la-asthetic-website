@@ -9,6 +9,10 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./services.component.css'],
 })
 export class ServicesComponent {
+  callForAppointment(): void {
+    const phone = '+918459323304';
+    window.location.href = `tel:${phone}`;
+  }
   services = [
     {
       title: 'Acne & Acne Scar Treatment',

@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ContactComponent } from '../contact/contact.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ContactComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css','./home-hero.css','./home-carousel.css'],
 })
@@ -47,5 +48,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   trackByUrl(_index: number, item: { url: string }): string {
     return item.url;
+  }
+  callForAppointment(): void {
+    const phone = '+918459323304';
+    window.location.href = `tel:${phone}`;
   }
 }

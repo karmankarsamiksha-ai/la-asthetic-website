@@ -13,7 +13,7 @@
     <h1>Radiant Skin,<br>Refined Care</h1>
     <p class="hero-subtitle">Expert dermatology in Nagpur—acne, hair regrowth, skin diseases, laser therapy, and more. Personalised care in a calm, clinical setting.</p>
     <div class="hero-actions">
-      <a routerLink="/book-appointment" class="btn btn-gold">Book Appointment</a>
+      <a (click) ="callForAppointment()" class="btn btn-gold">Call for Appointment</a>
       <a routerLink="/services" class="btn btn-secondary">Our Services</a>
     </div>
     <div class="hero-dots" role="tablist" [attr.aria-label]="'Carousel, slide ' + (carouselIndex + 1) + ' of ' + carouselImages.length">
