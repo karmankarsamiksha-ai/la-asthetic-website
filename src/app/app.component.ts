@@ -25,50 +25,51 @@ import { HttpClientModule } from '@angular/common/http';
     }
 
     .mobile-cta {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 50;
-      display: flex;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
-      background: rgba(255, 255, 255, 0.92);
-      border-top: 1px solid rgba(61, 45, 50, 0.08);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 
-    .mobile-cta-btn {
-      width: 90%;
-      min-height: 48px;
-      border-radius: 999px;
-      box-shadow: var(--shadow-soft);
-    }
+  display: flex;
+  justify-content: center;   /* center the button */
+  align-items: center;
 
-    @media (min-width: 768px) {
-      .mobile-cta {
-        display: none;
-      }
-    }
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 
-    @media (min-width: 480px) and (max-width: 767.98px) {
-      .main-content {
-        padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
-      }
-    }
-    @media (max-width: 360px) {
-      .mobile-cta-btn {
-        font-size: 13px;
-        padding: 0 8px;
-      }
-      .mobile-cta {
-        gap: 8px;
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-    }
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* BUTTON */
+.mobile-cta-btn {
+  width: 100%;
+  max-width: 500px;   /* prevents it from stretching too wide */
+  height: 50px;
+
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide on tablet & desktop */
+@media (min-width: 768px) {
+  .mobile-cta {
+    display: none;
+  }
+}
+
+/* Add space so content doesn’t hide behind CTA */
+@media (max-width: 767.98px) {
+  .main-content {
+    padding-bottom: 80px;
+  }
+}
 
   `],
 })
