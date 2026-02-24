@@ -73,12 +73,19 @@
 .contact-form-wrapper h2 {
   color: var(--color-charcoal);
   margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.contact-form-wrapper,
+.contact-info {
+  text-align: center;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+  text-align: left;
 }
 
 .contact-form .form-group {

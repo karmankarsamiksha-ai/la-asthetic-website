@@ -25,6 +25,7 @@
   }
   .doctor-photo-wrap {
     max-width: 220px;
+    height: 500px;
   }
   .doctor-name {
     font-size: 1.35rem;
@@ -92,12 +93,6 @@
 
 .doctor-info {
   text-align: center;
-}
-
-@media (min-width: 768px) {
-  .doctor-info {
-    text-align: left;
-  }
 }
 
 .doctor-name {

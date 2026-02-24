@@ -2,9 +2,14 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(244, 249, 252, 0.95);
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.96), rgba(250, 246, 246, 0.96))
+    padding-box,
+    linear-gradient(90deg, rgba(var(--color-blue-accent-rgb), 0.35), rgba(255, 255, 255, 0), rgba(var(--color-blue-accent-rgb), 0.35))
+    border-box;
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-sand);
+  border-bottom: 1px solid transparent;
+  animation: header-sheen 22s linear infinite;
 }
 
 .header-inner {
@@ -34,10 +39,13 @@
   color: var(--color-charcoal);
   font-family: var(--font-display);
   text-decoration: none;
+  transform-origin: left center;
+  transition: transform 0.25s ease, color 0.2s ease;
 }
 
 .logo:hover {
   color: var(--color-blue-accent);
+  transform: translateY(-1px) scale(1.01);
 }
 
 .logo-img {
@@ -46,6 +54,8 @@
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(var(--color-blue-accent-rgb), 0.15);
+  transition: box-shadow 0.4s ease;
 }
 
 .logo-text-wrap {
@@ -67,6 +77,10 @@
   text-transform: uppercase;
   color: var(--color-stone);
   margin-top: 1px;
+}
+
+.logo:hover .logo-img {
+  box-shadow: 0 0 0 6px rgba(var(--color-blue-accent-rgb), 0.14);
 }
 
 @media (max-width: 360px) {
@@ -147,6 +161,7 @@
   align-items: center;
   border-bottom: 1px solid transparent;
   border-radius: var(--radius-sm);
+  position: relative;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
@@ -154,6 +169,27 @@
 .nav a.active {
   color: var(--color-blue-accent);
   background: rgba(var(--color-blue-accent-rgb, 201, 123, 132), 0.12);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(var(--color-blue-accent-rgb), 0.2), rgba(var(--color-blue-accent-rgb), 0.7));
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 @media (min-width: 768px) {
@@ -239,5 +275,17 @@
   .header-social-icon {
     width: 20px;
     height: 20px;
+  }
+}
+
+@keyframes header-sheen {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
   }
 }

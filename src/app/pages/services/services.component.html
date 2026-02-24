@@ -10,7 +10,14 @@
     <div class="services-list-grid">
       @for (service of services; track service.title) {
         <div class="service-item">
-          <span class="service-item-icon">{{ service.icon }}</span>
+          <img
+            class="service-item-image"
+            [src]="service.imageUrl"
+            [alt]="service.imageAlt"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="service-item-icon" aria-hidden="true">{{ service.icon }}</span>
           <div class="service-item-content">
             <h3>{{ service.title }}</h3>
             <p>{{ service.description }}</p>

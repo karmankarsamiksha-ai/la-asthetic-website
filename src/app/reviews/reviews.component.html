@@ -1,11 +1,89 @@
-<section class="reviews-section" style="margin: 30px;">
-  <h2 style="justify-self: center;">What Our Patients Say</h2>
-  <p style="justify-self: center;">We value your feedback! Read what others are saying about us.</p>
-  <div style="justify-self: center;">
-    <button class="btn btn-primary" 
-    onclick="window.open('https://www.google.com/maps/place/La+Aesthetique+(Skin+Hair+Laser+Clinic)/@21.085885,79.0902019,17z/data=!4m8!3m7!1s0x3bd4bf795f8591d9:0xf4e81e61d5ae78d3!8m2!3d21.085885!4d79.0927768!9m1!1b1!16s%2Fg%2F11vws7p1pt?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D', '_blank')"
-    >
-      See All Reviews on Google
-    </button>
+<section class="reviews section">
+  <div class="container">
+    <div class="section-title">
+      <h2>What Our Patients Say</h2>
+      <p class="subtitle">Swipe through the reviews below.</p>
+    </div>
+
+    <div class="reviews-shell" aria-roledescription="carousel" aria-label="Patient reviews carousel">
+      <button
+        type="button"
+        class="reviews-nav"
+        (click)="prev()"
+        [disabled]="activeIndex === 0"
+        aria-label="Previous review"
+      >
+        ‹
+      </button>
+
+      <div
+        #track
+        class="reviews-track"
+        tabindex="0"
+        (scroll)="onScroll()"
+        aria-label="Swipe left or right to browse reviews"
+      >
+        <article
+          *ngFor="let review of reviews; let i = index"
+          class="review-card"
+          [attr.aria-label]="'Review ' + (i + 1) + ' of ' + reviews.length"
+        >
+          <header class="review-head">
+            <div class="review-avatar" [class.is-empty]="!review.avatarText">{{ review.avatarText || ' ' }}</div>
+            <div class="review-meta">
+              <div class="review-name" [class.skeleton]="!review.name">{{ review.name || ' ' }}</div>
+              <div class="review-time" [class.skeleton]="!review.time">{{ review.time || ' ' }}</div>
+            </div>
+            <div class="review-source" aria-label="Google review source">Google</div>
+          </header>
+
+          <div class="review-stars" [attr.aria-label]="(review.rating || 0) + ' out of 5 stars'">
+            <span class="star" [class.on]="(review.rating || 0) >= 1">★</span>
+            <span class="star" [class.on]="(review.rating || 0) >= 2">★</span>
+            <span class="star" [class.on]="(review.rating || 0) >= 3">★</span>
+            <span class="star" [class.on]="(review.rating || 0) >= 4">★</span>
+            <span class="star" [class.on]="(review.rating || 0) >= 5">★</span>
+          </div>
+
+          @if (review.text) {
+            <p class="review-text">{{ review.text }}</p>
+          } @else {
+            <div class="review-text-skeleton" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span class="short"></span>
+            </div>
+          }
+        </article>
+      </div>
+
+      <button style="margin-bottom: -300px;"
+        type="button"
+        class="reviews-nav"
+        (click)="next()"
+        [disabled]="activeIndex === reviews.length - 1"
+        aria-label="Next review"
+      >
+        ›
+      </button>
+    </div>
+
+    <div class="review-dots" role="tablist" [attr.aria-label]="'Reviews, item ' + (activeIndex + 1) + ' of ' + reviews.length">
+      <button
+        *ngFor="let review of reviews; let i = index"
+        type="button"
+        class="review-dot"
+        [class.active]="activeIndex === i"
+        [attr.aria-label]="'Go to review ' + (i + 1)"
+        [attr.aria-selected]="activeIndex === i"
+        (click)="goTo(i)"
+      ></button>
+    </div>
+
+    <div class="reviews-cta">
+      <button type="button" class="btn btn-primary" style="margin-bottom: 6%;" (click)="openGoogleReviews()">
+        See All Reviews on Google
+      </button>
+    </div>
   </div>
 </section>

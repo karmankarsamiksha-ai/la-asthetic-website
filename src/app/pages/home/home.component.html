@@ -1,34 +1,115 @@
-<section class="hero">
-  <div class="hero-bg">
-    <div
-      *ngFor="let img of carouselImages; let i = index; trackBy: trackByUrl"
-      class="hero-slide"
-      [class.hero-slide--active]="carouselIndex === i"
-      [style.backgroundImage]="'url(' + img.url + ')'"
-      [attr.aria-hidden]="carouselIndex !== i"
-    ></div>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content container">
-    <h1>Radiant Skin,<br>Refined Care</h1>
-    <p class="hero-subtitle">Expert dermatology in Nagpur—acne, hair regrowth, skin diseases, laser therapy, and more. Personalised care in a calm, clinical setting.</p>
-    <div class="hero-actions">
-      <a (click) ="callForAppointment()" class="btn btn-gold">Call for Appointment</a>
-      <a routerLink="/services" class="btn btn-secondary">Our Services</a>
+<section class="hero hero--banner">
+  <div class="container hero-banner">
+    <div class="hero-copy">
+      <p class="hero-kicker">La Aesthetique · Skin · Hair · Laser</p>
+      <h1>Nurturing Best Skin Health</h1>
+      <p class="hero-subtitle">
+        Expert dermatology in Nagpur—acne, hair regrowth, skin diseases, laser therapy, and more.
+        Personalised care in a calm, clinical setting.
+      </p>
+      <div class="hero-actions">
+        <a (click)="callForAppointment()" class="btn btn-gold">Call for Appointment</a>
+        <a routerLink="/services" class="btn btn-secondary">Our Services</a>
+      </div>
     </div>
-    <div class="hero-dots" role="tablist" [attr.aria-label]="'Carousel, slide ' + (carouselIndex + 1) + ' of ' + carouselImages.length">
-      <button
-        *ngFor="let img of carouselImages; let i = index; trackBy: trackByUrl"
-        type="button"
-        class="hero-dot"
-        [class.active]="carouselIndex === i"
-        [attr.aria-label]="'Go to slide ' + (i + 1)"
-        [attr.aria-selected]="carouselIndex === i"
-        (click)="carouselGoTo(i)"
-      ></button>
+
+    <div class="hero-media" role="group" aria-label="Clinic highlight images">
+      <div
+        class="hero-media-frame"
+        (pointerdown)="heroSwipeStart($event)"
+        (pointermove)="heroSwipeMove($event)"
+        (pointerup)="heroSwipeEnd($event)"
+        (pointercancel)="heroSwipeCancel()"
+      >
+        <img
+          *ngFor="let img of carouselImages; let i = index; trackBy: trackByUrl"
+          class="hero-media-slide"
+          [class.is-active]="carouselIndex === i"
+          [src]="img.url"
+          [alt]="img.alt"
+          [attr.aria-hidden]="carouselIndex !== i"
+          [attr.loading]="i === 0 ? 'eager' : 'lazy'"
+          [attr.decoding]="'async'"
+        />
+      </div>
+
+      <div
+        class="hero-dots"
+        role="tablist"
+        [attr.aria-label]="'Carousel, slide ' + (carouselIndex + 1) + ' of ' + carouselImages.length"
+      >
+        <button
+          *ngFor="let img of carouselImages; let i = index; trackBy: trackByUrl"
+          type="button"
+          class="hero-dot"
+          [class.active]="carouselIndex === i"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+          [attr.aria-selected]="carouselIndex === i"
+          (click)="carouselGoTo(i)"
+        ></button>
+      </div>
     </div>
   </div>
 </section>
+
+<section class="vision section">
+  <div class="container vision-grid">
+    <div class="vision-copy">
+      <h2>Our Vision</h2>
+      <p class="vision-tagline">To redefine beauty through trusted, science-backed care.</p>
+      <p class="vision-mission">Our Mission: To deliver personalized, honest treatments for every skin and hair need.</p>
+      <p class="vision-note">This is just the beginning of something beautiful.</p>
+    </div>
+    <div class="vision-media" aria-hidden="true">
+      <div class="vision-orbit">
+        <span class="vision-orb vision-orb--primary"></span>
+        <span class="vision-orb vision-orb--secondary"></span>
+        <span class="vision-orb vision-orb--tertiary"></span>
+      </div>
+      <div class="vision-image-card">
+        <img
+          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1400&auto=format&fit=crop"
+          alt="Calm aesthetic skincare moment at the clinic"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-preview section section--alt">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p class="subtitle">Acne &amp; scars, hair regrowth, skin diseases, laser therapy, and more—all under one roof in Nagpur.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <img class="service-card-image" src="https://images.pexels.com/photos/6475987/pexels-photo-6475987.jpeg?_gl=1*2f5u72*_ga*NDg0NjgxNDEyLjE3NzE5MjIwMzQ.*_ga_8JE65Q40S6*czE3NzE5MjIwMzQkbzEkZzEkdDE3NzE5MjIwNjYkajI4JGwwJGgw" />
+        <div class="service-icon">◆</div>
+        <h3>Acne &amp; Acne Scar Treatment</h3>
+        <p>Chemical peels, dermaroller, microneedling and laser for clearer skin and smoother texture.</p>
+      </div>
+      <div class="service-card">
+        <img class="service-card-image" src="https://images.pexels.com/photos/13899821/pexels-photo-13899821.jpeg?_gl=1*1geszya*_ga*NDg0NjgxNDEyLjE3NzE5MjIwMzQ.*_ga_8JE65Q40S6*czE3NzE5MjIwMzQkbzEkZzEkdDE3NzE5MjIyNTckajQyJGwwJGgw" alt="Hair regrowth and scalp therapy" loading="lazy" decoding="async" />
+        <div class="service-icon">◆</div>
+        <h3>Hair Regrowth Therapy</h3>
+        <p>GFC, Laser Cap, Duta injections, Hair 360 and custom plans for thinning and hair loss.</p>
+      </div>
+      <div class="service-card">
+        <img class="service-card-image" src="https://images.pexels.com/photos/16032366/pexels-photo-16032366.jpeg?_gl=1*w7yxr0*_ga*NDg0NjgxNDEyLjE3NzE5MjIwMzQ.*_ga_8JE65Q40S6*czE3NzE5MjIwMzQkbzEkZzEkdDE3NzE5MjQ0ODEkajU5JGwwJGgw" alt="Laser skin treatment procedure" loading="lazy" decoding="async" />
+        <div class="service-icon">◆</div>
+        <h3>Skin Diseases &amp; Laser</h3>
+        <p>Psoriasis, vitiligo, fungal infections, nail laser, tattoo removal and full skin care.</p>
+      </div>
+    </div>
+    <div class="section-cta">
+      <a routerLink="/services" class="btn btn-primary">View All Services</a>
+    </div>
+  </div>
+</section>
+
 
 <section class="doctor-preview section">
   <div class="container">
@@ -47,36 +128,98 @@
   </div>
 </section>
 
-<app-reviews></app-reviews>
-
-<section class="services-preview section section--alt">
+<section class="video-gallery section section--alt">
   <div class="container">
     <div class="section-title">
-      <h2>Our Services</h2>
-      <p class="subtitle">Acne &amp; scars, hair regrowth, skin diseases, laser therapy, and more—all under one roof in Nagpur.</p>
+      <h2>Video Gallery</h2>
+      <p class="subtitle">
+        Short clips on real patient stories and skincare explained by our clinic.
+        Swipe on your phone or use the arrows to browse.
+      </p>
     </div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">◆</div>
-        <h3>Acne &amp; Acne Scar Treatment</h3>
-        <p>Chemical peels, dermaroller, microneedling and laser for clearer skin and smoother texture.</p>
+
+    <div class="video-shell" aria-roledescription="carousel" aria-label="Instagram video gallery">
+      <button
+        type="button"
+        class="video-nav"
+        (click)="videoPrev()"
+        [disabled]="videoActiveIndex === 0"
+        aria-label="Previous video"
+      >
+        ‹
+      </button>
+
+      <div
+        #videoTrack
+        class="video-track"
+        tabindex="0"
+        (scroll)="onVideoScroll()"
+        aria-label="Swipe left or right to browse videos"
+      >
+        <article
+          *ngFor="let reel of videoReels; let i = index"
+          class="video-card"
+          [attr.aria-label]="'Video ' + (i + 1) + ' of ' + videoReels.length"
+        >
+          <header class="video-meta">
+            <span class="video-topic">{{ reel.topic }}</span>
+            <h3 class="video-title">{{ reel.title }}</h3>
+          </header>
+
+          <div class="video-frame-wrap">
+            <iframe
+              class="video-frame"
+              [src]="reel.embedUrl"
+              loading="lazy"
+              allowfullscreen
+              allow="autoplay; encrypted-media; picture-in-picture"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <a
+            class="video-link"
+            [href]="reel.permalink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Watch on Instagram
+          </a>
+        </article>
       </div>
-      <div class="service-card">
-        <div class="service-icon">◆</div>
-        <h3>Hair Regrowth Therapy</h3>
-        <p>GFC, Laser Cap, Duta injections, Hair 360 and custom plans for thinning and hair loss.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">◆</div>
-        <h3>Skin Diseases &amp; Laser</h3>
-        <p>Psoriasis, vitiligo, fungal infections, nail laser, tattoo removal and full skin care.</p>
-      </div>
+
+      <button
+        type="button"
+        class="video-nav"
+        (click)="videoNext()"
+        [disabled]="videoActiveIndex === videoReels.length - 1"
+        aria-label="Next video"
+      >
+        ›
+      </button>
     </div>
-    <div class="section-cta">
-      <a routerLink="/services" class="btn btn-primary">View All Services</a>
+
+    <div
+      class="video-dots"
+      role="tablist"
+      [attr.aria-label]="'Video, item ' + (videoActiveIndex + 1) + ' of ' + videoReels.length"
+    >
+      <button
+        *ngFor="let reel of videoReels; let i = index"
+        type="button"
+        class="video-dot"
+        [class.active]="videoActiveIndex === i"
+        [attr.aria-label]="'Go to video ' + (i + 1)"
+        [attr.aria-selected]="videoActiveIndex === i"
+        (click)="videoGoTo(i)"
+      ></button>
     </div>
   </div>
 </section>
+
+<app-reviews></app-reviews>
+
+
 
 <section class="cta-section section">
   <div class="container cta-inner">
