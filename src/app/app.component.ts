@@ -16,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     </main>
     <nav class="mobile-cta" aria-label="Quick actions">
       <a class="btn btn-primary mobile-cta-btn" href="tel:+918459323304">Call now</a>
-      <a class="btn btn-gold mobile-cta-btn" routerLink="/book-appointment">Book appointment</a>
     </nav>
     <app-footer />
   `,
