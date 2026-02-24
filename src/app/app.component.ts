@@ -14,8 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
     <main class="main-content">
       <router-outlet />
     </main>
-    <nav class="mobile-cta" aria-label="Quick actions">
-    </nav>
     <app-footer />
   `,
   styles: [`
