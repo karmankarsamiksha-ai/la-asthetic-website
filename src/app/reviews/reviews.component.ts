@@ -21,26 +21,23 @@ export class ReviewsComponent implements AfterViewInit {
 
   readonly reviews: ReviewCard[] = [
     {
-      name: 'Rajnish Chandra',
-      avatarText: 'RC',
-      time: 'Review from Google · Recent visit',
+      name: 'Nishant Kolhatkar',
+      avatarText: 'NK',
+      time: 'Review from Google',
       rating: 5,
-      text: 'Dr. Pradnya explains every concern in detail and suggests only what is genuinely required. The staff is polite, the clinic is hygienic and I felt very comfortable throughout my treatment. Highly recommended for anyone looking for an honest dermatologist in Nagpur.',
-    },
+      text: 'I had a great experience with Dr. Pradnya for my skin and hair treatment. She patiently listened to my concerns, explained everything clearly, and suggested the right treatment plan. After one week, I already see improvement. The clinic is clean and well-maintained, and the staff is polite. Highly recommend for anyone looking for a dermatologist, hair loss treatment, or skincare consultation.'},
     {
-      name: 'Shreya K',
-      avatarText: 'SK',
-      time: 'Review from Google · Acne & hair care',
+      name: 'Ajit Likhar',
+      avatarText: 'AL',
+      time: 'Review from Google',
       rating: 5,
-      text: 'I have been taking treatment for acne and hair fall here and can already see a huge difference. She listens patiently, answers all questions and tailors the plan according to lifestyle and budget. The follow-up is very good and I always feel heard.',
-    },
+      text: 'Good doctor. She is very simple and gentle in his behavior. She will give sufficient time to each patient. She studies the patient and disease meticulously. We can freely interact with the doctor.' },
     {
-      name: 'Pratiksha Patil',
-      avatarText: 'PP',
-      time: 'Review from Google · Skin & confidence',
+      name: 'Navin Bais',
+      avatarText: 'NB',
+      time: 'Review from Google ',
       rating: 5,
-      text: 'Best experience so far. My pigmentation and dark spots have reduced significantly and my skin feels healthier. Dr. Pradnya is very calm, friendly and never rushes the appointment. I feel much more confident about my skin now.',
-    },
+      text: 'I am taking treatment from Dr pradnya mam for acne .. and got good results .. she explains everything in detail and clearly ... She is very knowledgeable and best doctor.. thank you doctor ... I highly recommend her .... Happy with the results'  },
   ];
 
   activeIndex = 0;
