@@ -41,7 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     }
 
     .mobile-cta-btn {
-      width: 100%;
+      width: 90%;
       min-height: 48px;
       border-radius: 999px;
       box-shadow: var(--shadow-soft);
