@@ -31,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
       right: 0;
       bottom: 0;
       z-index: 50;
-      display: grid;
+      display: flex;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
@@ -54,11 +54,23 @@ import { HttpClientModule } from '@angular/common/http';
       }
     }
 
-    @media (max-width: 767.98px) {
+    @media (min-width: 480px) and (max-width: 767.98px) {
       .main-content {
         padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
       }
     }
+    @media (max-width: 360px) {
+      .mobile-cta-btn {
+        font-size: 13px;
+        padding: 0 8px;
+      }
+      .mobile-cta {
+        gap: 8px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+
   `],
 })
 export class AppComponent {}
